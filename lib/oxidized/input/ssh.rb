@@ -132,7 +132,8 @@ module Oxidized
         password:                        @node.auth[:password],
         timeout:                         Oxidized.config.timeout,
         port:                            (vars(:ssh_port) || 22).to_i,
-        forward_agent:                   false
+        forward_agent:                   false,
+        pubkey_algorithms:               %w[ssh-rsa]
       }
 
       auth_methods = vars(:auth_methods) || %w[none publickey password]
